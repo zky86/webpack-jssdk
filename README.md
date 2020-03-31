@@ -1,6 +1,7 @@
 # webpack 打包 jssdk 编译环境
 # 打包成一份jssdk，支持热更新
 #
+### 安装
 ```
 npm install
 ```
