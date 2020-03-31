@@ -1,5 +1,5 @@
 const util = require('./lib/util');
 function test() {
-  console.log(22);
+  console.log(555);
 }
 test()
