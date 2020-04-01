@@ -19,6 +19,9 @@ module.exports = {
       use: {
         loader: "babel-loader"
       }
+    }, {
+      test: /\.(s*)css$/,
+      use: ['style-loader', 'css-loader', 'sass-loader']
     }]
   },
   resolve: {
@@ -35,7 +38,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './dist/index.html'  //自动生成HTML并插入对应的js和css文件
+      template: './dist/index.html' //自动生成HTML并插入对应的js和css文件
     })
   ]
 }
