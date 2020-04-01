@@ -3,4 +3,21 @@ body{
     font-size: 50px;
   }
 }
-input:-webkit-autofill{-webkit-box-shadow:0 0 0px 1000px white inset};
+.sdk-model{
+  position: fixed;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #ddd;
+  right: 0;
+  bottom: 0;
+  z-index: 999999;
+  .list{
+    li{
+      cursor: pointer;
+      color: 333;
+      padding: 5px 10px 10px 10px;
+      margin: 10px 10px 10px 10px;
+      border-bottom: 1px solid #999;
+    }
+  }
+}

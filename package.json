@@ -17,7 +17,9 @@
   "keywords": [],
   "author": "zky",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "handlebars": "^4.7.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "babel-loader": "^8.0.6",
