@@ -3,7 +3,16 @@ body{
     font-size: 50px;
   }
 }
+
 .sdk-model{
+  .open{
+    display: none;
+    cursor: pointer;
+  }
+  .close{
+    display: block;
+    cursor: pointer;
+  }
   position: fixed;
   padding: 10px;
   border: 1px solid #ddd;
@@ -12,6 +21,7 @@ body{
   bottom: 0;
   z-index: 999999;
   .list{
+    display: block;
     li{
       cursor: pointer;
       color: 333;
@@ -19,5 +29,17 @@ body{
       margin: 10px 10px 10px 10px;
       border-bottom: 1px solid #999;
     }
+  }
+}
+.sdk-model-active{
+  .close{
+    display: none;
+    cursor: pointer;
+  }
+  .open{
+    display: block;
+  }
+  .list{
+    display: none;
   }
 }

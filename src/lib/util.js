@@ -1,5 +1,10 @@
+
 export const test = (str) => {
   return str
+}
+
+export const getId = (id) => {
+  return (typeof (id) === 'string' ? document.getElementById(id) : id)
 }
 
 /**
@@ -21,11 +26,53 @@ export const fetch = function (url, callback, data, x) {
   }
 }
 
+export const compatible = function () {
+  // 兼容bind
+  if (!Function.prototype.bind) {
+    // eslint-disable-next-line no-extend-native
+    Function.prototype.bind = function () {
+      if (typeof this !== 'function') {
+        throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable')
+      }
+      var _this = this
+      var obj = arguments[0]
+      var ags = Array.prototype.slice.call(arguments, 1)
+      return function () {
+        _this.apply(obj, ags)
+      }
+    }
+  }
+  // 兼容indexOf
+  if (!Array.prototype.indexOf) {
+    // eslint-disable-next-line no-extend-native
+    Array.prototype.indexOf = function (val) {
+      var value = this
+      for (var i = 0; i < value.length; i++) {
+        if (value[i] === val) return i
+      }
+      return -1
+    }
+  }
+  // 兼容addEventListener函数
+  if (!window.addEventListener) {
+    // eslint-disable-next-line no-extend-native
+    Function.prototype.addEventListener = function addEventListener (ele, event, fn) {
+      if (ele.addEventListener) {
+        ele.addEventListener(event, fn, false)
+      } else {
+        ele.attachEvent('on' + event, fn.bind(ele))
+      }
+    }
+  }
+}
+
 // Handlebars模板使用
 export const html = (para) => {
   const Handlebars = require('handlebars')
   const html =
   '<div class="sdk-model">' +
+    '<div class="close" id="sdkClose">关闭</div>' +
+    '<div class="open" id="sdkOpen">展开</div>' +
     '<ul class="list clearfix">' +
       '{{#list}}<li>{{title}}</li>{{/list}}' +
     '</ul>' +
